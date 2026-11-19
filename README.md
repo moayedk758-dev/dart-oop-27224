@@ -1,15 +1,50 @@
 # Dart OOP Assignment: Kigali Bus Card
 
-Name: Moayed Kamal
-Student ID: 27224
+**Name:** Moayed Kamal  
+**Student ID:** 27224
 
 ## My numbers
-D = 24
-L = 4
 
-Starting balance = 1240 RWF
-Bus fare = 224 RWF
-Student discount = 14%
+- D = 24
+- L = 4
+- Starting balance = 1240 RWF
+- Bus fare = 224 RWF
+- Student discount = 14%
+
+## Output of main.dart
+
+```text
+Error: name too short
+Owner: Moayed Kamal | Balance: 1240 RWF
+Owner: Moayed Kamal | Balance: 1240 RWF
+Error: top-up must be 500 to 50000 RWF
+Topped up 2000 RWF
+Paid 224 RWF
+Paid 224 RWF
+Owner: Moayed Kamal | Balance: 2792 RWF
+Student discount: 31 RWF
+Paid 193 RWF
+Owner: Moayed Kamal | Balance: 1047 RWF
+Student card: 14% off
+```
+
+## Part 1: Why no setter for balance?
+
+I did not add a setter because the balance should not be changed directly.
+The balance can only change using topUp() and pay().
+These methods check the amount before changing the balance.
+
+## Part 2: What does ~/ do?
+
+The ~/ operator divides two numbers and removes the decimal part.
+The / operator gives a decimal result.
+
+For example:
+
+```dart
+print(237 * 17 / 100);  // 40.29
+print(237 * 17 ~/ 100); // 40
+```
 
 ## Part 4: Bug Hunt
 
@@ -48,3 +83,16 @@ The setter does not accept -5, so the value stays 1.
 The second bag uses the add method twice.
 Each call adds 2 items, so the total becomes 4.
 Then 1 more item is added, making 5.
+
+### Real output
+
+```text
+1
+5
+```
+
+### Was I right?
+
+Yes, my prediction was correct.
+The first bag has 1 item.
+The second bag has 5 items.
