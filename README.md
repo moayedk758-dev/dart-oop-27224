@@ -30,3 +30,21 @@ Student discount = 14%
 ```text
 100
 ```
+
+## Part 5: Predict the Output
+
+### My prediction
+
+```text
+1
+5
+```
+
+### Why
+
+The first bag starts with 0 items. The add method adds 1.
+The setter does not accept -5, so the value stays 1.
+
+The second bag uses the add method twice.
+Each call adds 2 items, so the total becomes 4.
+Then 1 more item is added, making 5.
