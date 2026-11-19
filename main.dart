@@ -64,3 +64,70 @@ class BusCard {
     }
   }
 }
+
+// Part 2: StudentCard
+// StudentCard is a BusCard, but students get a discount.
+class StudentCard extends BusCard {
+  int _discount = 0;
+
+  // Constructor: super creates the parent BusCard.
+  StudentCard(String owner, int balance, int discount)
+      : super(owner, balance) {
+    _discount = discount;
+  }
+
+  // This method shows the normal card information first.
+  @override
+  void showInfo() {
+    super.showInfo();
+    print('Student card: $_discount% off');
+  }
+
+  // TODO 4: Students pay less than the normal fare.
+  @override
+  void pay(int fare) {
+    // Calculate the discount.
+    int off = fare * _discount ~/ 100;
+
+    // Show the discount.
+    print('Student discount: $off RWF');
+
+    // Use the parent's pay method with the reduced fare.
+    super.pay(fare - off);
+  }
+}
+
+// Part 3: Test the classes.
+void main() {
+  // My numbers: D = 24, L = 4
+  // Starting balance = 1240 RWF
+  // Bus fare = 224 RWF
+  // Student discount = 14%
+
+  // Create a normal bus card.
+  BusCard card = BusCard('Moayed Kamal', 1240);
+
+  // Try a short name. It should be refused.
+  card.owner = 'Al';
+  card.showInfo();
+
+  // TODO 5: Change the owner and show information.
+  card.owner = 'Moayed Kamal';
+  card.showInfo();
+
+  // TODO 6: Try an invalid and a valid top-up.
+  card.topUp(100);
+  card.topUp(2000);
+
+  // TODO 7: Pay the normal bus fare twice.
+  card.pay(224);
+  card.pay(224);
+  card.showInfo();
+
+  // TODO 8: Create a student card with 14% discount.
+  StudentCard student = StudentCard('Moayed Kamal', 1240, 14);
+
+  // TODO 9: Pay the bus fare with the student card.
+  student.pay(224);
+  student.showInfo();
+}
